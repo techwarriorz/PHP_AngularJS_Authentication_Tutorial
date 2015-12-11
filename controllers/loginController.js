@@ -33,7 +33,7 @@ app.controller("LoginController", function($scope, $http, $state){
         
         $http.post("endpoints/signup.php", data).success(function(response){
             console.log(response);
-            localStorage.setItem("user", JSON.stringify({user: response}));
+            localStorage.setItem("token", JSON.stringify(response));
             $state.go("application");
         }).error(function(error){
             console.error(error);
@@ -48,7 +48,7 @@ app.controller("LoginController", function($scope, $http, $state){
         
         $http.post("endpoints/login.php", data).success(function(response){
             console.log(response);
-            localStorage.setItem("user", JSON.stringify({user: response[0].email}));
+            localStorage.setItem("token", JSON.stringify(response));
             $state.go("application", result);
         }).error(function(error){
             console.error(error);

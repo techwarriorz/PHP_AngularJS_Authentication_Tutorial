@@ -1,7 +1,8 @@
 var app = angular.module("UserAuthTutorial", ["ui.router"]);
 
-app.config(function($stateProvider){
-    $stateProvider
+app.config(function($stateProvider, $urlRouterProvider){
+    $urlRouterProvider.otherwise('/');
+	$stateProvider
         .state("login", {
         url:"/",
         controller: "LoginController",

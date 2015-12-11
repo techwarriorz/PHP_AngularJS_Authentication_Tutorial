@@ -8,7 +8,7 @@
     $query = $db->prepare($q);
     $execute = $query->execute(array(
         ":email" => $username,
-        ":password" => $password
+        ":password" => sha1($password)
     ));
 
     echo json_encode($username);
